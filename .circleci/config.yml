@@ -1,0 +1,14 @@
+version: 2.1
+jobs:
+  build:
+    docker:
+        - image: circleci/node:latest
+        - image: takamaru/postgres-test:latest
+        - image: circleci/postgres:9.6-alpine
+    environment:
+        POSTGRES_USER: postgres
+        POSTGRES_DB: postgres
+        POSTGRES_PASSWORD: pytestSamplePassword12345
+    steps:
+      - run: echo "check secondary container access"
+      - run: sleep 120
